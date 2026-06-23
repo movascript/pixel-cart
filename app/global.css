@@ -19,8 +19,11 @@
   --color-label: #57728e;
   --color-value: #30445b;
 
-  --font-family-yekan: "Yekan Bakh", sans-serif;
+  --font-body: "Yekan Bakh", sans-serif;
+  --font-heading: "Yekan", sans-serif;
 }
+
+/* Yekan Bakh */
 
 @font-face {
   font-family: "Yekan Bakh";
@@ -54,11 +57,46 @@
   font-display: swap;
 }
 
+/* Yekan */
+
+@font-face {
+  font-family: "Yekan";
+  src: url("~/fonts/yekan-light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yekan";
+  src: url("~/fonts/yekan-regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yekan";
+  src: url("~/fonts/yekan-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
 }
 
 body {
   direction: rtl;
-  font-family: var(--font-family-yekan);
+  font-family: var(--font-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }
