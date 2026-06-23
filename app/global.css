@@ -1,5 +1,27 @@
 @import "tailwindcss";
 
+@theme {
+  --color-primary: #e20054;
+  --color-secondary: #253343;
+  --color-subtle: #445a74;
+  --color-muted: #647e9a;
+  --color-heading: #0a2a51;
+
+  --color-background: #e9edf5;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f5f7fa;
+
+  --color-card: #ffffff;
+  --color-border: #e9edf5;
+
+  --color-badge: #fce5ee;
+
+  --color-label: #57728e;
+  --color-value: #30445b;
+
+  --font-family-dana: "Dana", sans-serif;
+}
+
 @font-face {
   font-family: "Dana";
   src:
@@ -11,7 +33,7 @@
 }
 * {
   box-sizing: border-box;
-  font-family: "Dana", sans-serif;
+  font-family: var(--font-family-dana) !important;
 }
 
 body {
