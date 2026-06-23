@@ -1,10 +1,18 @@
+<script setup lang="ts">
+const mobileNavOpen = ref(false);
+</script>
+
 <template>
   <header
     class="bg-surface border-b border-border sticky top-0 z-header shadow-sm rounded-b-2xl"
   >
     <div class="container">
       <div class="relative flex items-center h-18 md:h-30">
-        <UiIconButton icon="menu" class="md:hidden" />
+        <UiIconButton
+          icon="menu"
+          class="md:hidden"
+          @click.stop="mobileNavOpen = !mobileNavOpen"
+        />
 
         <nav
           class="hidden md:flex items-center gap-5 absolute left-1/2 -translate-x-1/2"
@@ -31,4 +39,10 @@
       </div>
     </div>
   </header>
+
+  <LayoutMobileNav
+    class="md:hidden"
+    :open="mobileNavOpen"
+    @close="mobileNavOpen = false"
+  />
 </template>

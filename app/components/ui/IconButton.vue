@@ -3,6 +3,10 @@ defineOptions({
   inheritAttrs: false,
 });
 
+const emit = defineEmits<{
+  click: [event: MouseEvent];
+}>();
+
 const props = withDefaults(
   defineProps<{
     icon: string;
@@ -34,6 +38,7 @@ const sizeClass = computed(() => {
         $attrs.class,
       )
     "
+    @click="emit('click', $event)"
   >
     <UiIcon :name="icon" />
   </button>
