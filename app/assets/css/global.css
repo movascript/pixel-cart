@@ -92,6 +92,7 @@
 body {
   direction: rtl;
   font-family: var(--font-body);
+  background-color: var(--color-background);
 }
 
 h1,
@@ -104,7 +105,6 @@ h6 {
 }
 
 .container {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  max-width: 1000px;
+  @apply mx-auto px-4 md:px-8;
 }
