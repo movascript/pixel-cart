@@ -3,7 +3,8 @@
 // but i feel its better than manual import for each svg file
 const icons = import.meta.glob("~/assets/icons/*.svg", {
   eager: true,
-  as: "raw",
+  query: "?raw",
+  import: "default",
   base: "/assets/icons/",
 });
 
