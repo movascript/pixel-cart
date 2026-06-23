@@ -9,7 +9,7 @@
 
   --color-background: #e9edf5;
   --color-surface: #ffffff;
-  --color-surface-muted: #f5f7fa;
+  --color-surface-muted: #f8f9fc;
 
   --color-card: #ffffff;
   --color-border: #e9edf5;
@@ -93,18 +93,15 @@ body {
   direction: rtl;
   font-family: var(--font-body);
   background-color: var(--color-background);
+  color: var(--color-secondary);
 }
 
 h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
+h2 {
   font-family: var(--font-heading);
 }
 
 .container {
-  max-width: 1000px;
+  max-width: 1176px;
   @apply mx-auto px-4 md:px-8;
 }
