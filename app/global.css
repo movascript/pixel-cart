@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Dana";
+  src:
+    url("~/fonts/DanaVF.woff2") format("woff2"),
+    url("~/fonts/DanaVF.woff") format("woff");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
 * {
   box-sizing: border-box;
+  font-family: "Dana", sans-serif;
+}
+
+body {
+  direction: rtl;
 }
