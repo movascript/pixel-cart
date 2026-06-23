@@ -19,23 +19,46 @@
   --color-label: #57728e;
   --color-value: #30445b;
 
-  --font-family-dana: "Dana", sans-serif;
+  --font-family-yekan: "Yekan Bakh", sans-serif;
 }
 
 @font-face {
-  font-family: "Dana";
-  src:
-    url("~/fonts/DanaVF.woff2") format("woff2"),
-    url("~/fonts/DanaVF.woff") format("woff");
-  font-weight: 100 900;
+  font-family: "Yekan Bakh";
+  src: url("~/fonts/yekan-bakh-regular.woff") format("woff");
+  font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
+
+@font-face {
+  font-family: "Yekan Bakh";
+  src: url("~/fonts/yekan-bakh-medium.woff") format("woff");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yekan Bakh";
+  src: url("~/fonts/yekan-bakh-bold.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Yekan Bakh";
+  src: url("~/fonts/yekan-bakh-heavy.woff") format("woff");
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+
 * {
   box-sizing: border-box;
-  font-family: var(--font-family-dana) !important;
 }
 
 body {
   direction: rtl;
+  font-family: var(--font-family-yekan);
 }
