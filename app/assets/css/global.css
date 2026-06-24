@@ -105,3 +105,8 @@ h2 {
   max-width: 1176px;
   @apply mx-auto px-4 md:px-8;
 }
+
+.ltr {
+  direction: ltr;
+  text-align: left;
+}
