@@ -7,7 +7,7 @@
 
     <!-- title and btn -->
     <div class="flex flex-1 flex-col gap-4 pt-4 p-1">
-      <div class="h-6 w-4/5 rounded bg-surface-muted" />
+      <div class="h-6 w-4/5 self-end rounded bg-surface-muted" />
 
       <div class="mt-auto h-10 w-full rounded-2xl bg-surface-muted" />
     </div>

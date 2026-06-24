@@ -96,11 +96,6 @@ body {
   color: var(--color-secondary);
 }
 
-h1,
-h2 {
-  font-family: var(--font-heading);
-}
-
 .container {
   max-width: 1176px;
   @apply mx-auto px-4 md:px-8;

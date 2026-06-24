@@ -18,7 +18,7 @@ const emit = defineEmits<{
 }>();
 
 const variants = computed(() => ({
-  default: "bg-primary text-white hover:opacity-90",
+  default: "bg-primary text-white hover:bg-primary/80",
 
   outline: "border border-border text-primary hover:border-primary",
 
