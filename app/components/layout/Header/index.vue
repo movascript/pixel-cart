@@ -14,33 +14,20 @@ const mobileNavOpen = ref(false);
           @click.stop="mobileNavOpen = !mobileNavOpen"
         />
 
-        <nav
-          class="hidden md:flex items-center gap-5 absolute left-1/2 -translate-x-1/2"
-        >
-          <NuxtLink
-            v-for="item in headerNavItems"
-            :key="item.label"
-            :to="item.to"
-            class="flex text-sm text-nowrap font-medium gap-2 items-center hover:text-primary transition-colors"
-            active-class="text-primary"
-          >
-            <UiIcon :name="item.icon" />
-            {{ item.label }}
-          </NuxtLink>
-        </nav>
+        <LayoutHeaderNav class="hidden md:flex" />
 
-        <div class="ms-auto">
+        <a href="tel:118" class="ms-auto">
           <UiButton class="px-5 md:px-6 hidden md:flex">
             تماس
             <UiIcon name="call" />
           </UiButton>
           <UiIconButton icon="call" class="md:hidden" />
-        </div>
+        </a>
       </div>
     </div>
   </header>
 
-  <LayoutMobileNav
+  <LayoutHeaderMobileNav
     class="md:hidden"
     :open="mobileNavOpen"
     @close="mobileNavOpen = false"
