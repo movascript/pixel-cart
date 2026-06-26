@@ -33,7 +33,7 @@ defineProps<{
         {{ title }}
       </NuxtLink>
 
-      <div v-else class="h-4 w-40 animate-pulse rounded-md bg-surface-muted" />
+      <UiSkeleton v-else variant="text" class="h-4 w-40" />
     </div>
   </nav>
 </template>

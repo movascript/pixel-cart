@@ -13,9 +13,7 @@ const {
   setSortBy,
 } = useProducts();
 
-onMounted(async () => {
-  await Promise.all([fetchProducts(), fetchCategories()]);
-});
+onMounted(() => Promise.all([fetchProducts(), fetchCategories()]));
 </script>
 
 <template>
@@ -44,25 +42,28 @@ onMounted(async () => {
           <ProductCardSkeleton v-for="i in 6" :key="i" />
         </div>
 
-        <div v-else-if="error" class="text-center py-12">
-          {{ error }}
-        </div>
+        <UiEmptyState
+          v-else-if="error"
+          title="مشکلی پیش آمد"
+          :description="error"
+        />
 
-        <div
+        <UiEmptyState
           v-else-if="filteredProducts.length === 0"
-          class="text-center py-12"
-        >
-          هیچ محصولی یافت نشد
-        </div>
+          face=":("
+          title="چیزی پیدا نشد"
+          description="هیچ محصولی با فیلترهای انتخاب‌شده پیدا نشد."
+        />
 
         <div
           v-else
           class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
         >
           <ProductCard
-            v-for="product in filteredProducts"
+            v-for="(product, index) in filteredProducts"
             :key="product.id"
             :product="product"
+            :eager="index <= 6"
           />
         </div>
       </div>

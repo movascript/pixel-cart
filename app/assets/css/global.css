@@ -1,7 +1,9 @@
 @import "tailwindcss";
+@import "fonts.css";
 
 @theme {
   --color-primary: #e20054;
+  --color-primary-light: #fce5ee;
   --color-secondary: #253343;
   --color-subtle: #445a74;
   --color-muted: #647e9a;
@@ -23,66 +25,9 @@
   --font-heading: "Yekan", sans-serif;
 
   --z-index-header: 50;
-}
 
-/* Yekan Bakh */
-
-@font-face {
-  font-family: "Yekan Bakh";
-  src: url("~/fonts/yekan-bakh-regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Yekan Bakh";
-  src: url("~/fonts/yekan-bakh-medium.woff") format("woff");
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Yekan Bakh";
-  src: url("~/fonts/yekan-bakh-bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Yekan Bakh";
-  src: url("~/fonts/yekan-bakh-heavy.woff") format("woff");
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
-
-/* Yekan */
-
-@font-face {
-  font-family: "Yekan";
-  src: url("~/fonts/yekan-light.woff") format("woff");
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Yekan";
-  src: url("~/fonts/yekan-regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Yekan";
-  src: url("~/fonts/yekan-bold.woff") format("woff");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
+  --animate-fade-up: fade-up 250ms ease-out;
+  --animate-slide-up: slide-up 250ms ease-out;
 }
 
 * {
@@ -104,4 +49,24 @@ body {
 .ltr {
   direction: ltr;
   text-align: left;
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(0px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

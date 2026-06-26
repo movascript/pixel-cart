@@ -3,9 +3,11 @@ const props = withDefaults(
   defineProps<{
     title: string;
     defaultOpen?: boolean;
+    disabled?: boolean;
   }>(),
   {
-    defaultOpen: false,
+    defaultOpen: true,
+    disabled: false,
   },
 );
 
@@ -15,14 +17,16 @@ const open = ref(props.defaultOpen);
 <template>
   <div class="rounded-3xl border border-border bg-surface overflow-hidden">
     <button
-      class="flex w-full items-center justify-between p-4 cursor-pointer"
-      @click="open = !open"
+      class="flex w-full items-center justify-between p-4"
+      :class="props.disabled ? 'cursor-default' : 'cursor-pointer'"
+      @click="!props.disabled && (open = !open)"
     >
       <span class="text-sm font-medium text-subtle">
         {{ title }}
       </span>
 
       <UiIcon
+        v-if="!props.disabled"
         name="arrowDown"
         :class="cn('transition-transform duration-200', open && 'rotate-180')"
       />
