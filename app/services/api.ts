@@ -10,4 +10,7 @@ export class ApiService {
   static async getProduct(id: number) {
     return this.fetch<Product>(`/products/${id}`);
   }
+  static async getCategories(): Promise<string[]> {
+    return this.fetch<string[]>("/products/categories");
+  }
 }

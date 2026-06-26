@@ -20,14 +20,14 @@ const emit = defineEmits<{
 const variants = computed(() => ({
   default: "bg-primary text-white hover:bg-primary/80",
 
-  outline: "border border-border text-primary hover:border-primary",
+  outline: "border border-border text-primary hover:border-primary/50",
 
   ghost: "text-primary hover:bg-primary/10",
 }));
 
 const sizes = computed(() => ({
   sm: "h-9 px-3 text-sm",
-  md: "h-10 px-4 text-sm md:text-base",
+  md: "h-10 px-4 text-sm",
   lg: "h-12 px-6 text-base",
 }));
 </script>

@@ -2,7 +2,7 @@
   <div class="flex flex-col gap-6 animate-pulse">
     <!-- img -->
     <div class="w-full rounded-2xl bg-surface p-6">
-      <div class="mb-6 h-8 float-left w-64 rounded-lg bg-surface-muted" />
+      <div class="mb-6 h-7 float-left w-64 rounded-lg bg-surface-muted" />
 
       <div
         class="h-58 md:h-78 flex w-full items-center justify-center rounded-2xl bg-surface-muted p-4"

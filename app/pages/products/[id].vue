@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { Product } from "~/types/product";
-
 const route = useRoute();
 const productId = computed(() => Number(route.params.id));
 

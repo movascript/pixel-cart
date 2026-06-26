@@ -5,10 +5,6 @@ export interface Product {
   description: string;
   category: string;
   image: string;
-  rating?: {
-    rate: number;
-    count: number;
-  };
 }
 
 export type SortOption =
@@ -20,6 +16,6 @@ export type SortOption =
 
 export interface ProductFilters {
   search: string;
-  category: string;
+  categories: string[];
   sortBy: SortOption;
 }
