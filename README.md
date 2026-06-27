@@ -1,75 +1,54 @@
-# Nuxt Minimal Starter
+# پیکسل کارت
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+یه فروشگاه اینترنتی با Nuxt 4 و Vue 3، فارسی. یه پروژه تستی برای به چالش کشیدن توانایی‌های خودم — تجربه‌ی جالبی بود در کنار همه دردسر هایی که داشت. دیتاش از [FakeStoreAPI](https://fakestoreapi.com) میاد.
 
-## Setup
+### 🔗 [pixelcart.ir](https://pixelcart.ir)
 
-Make sure to install dependencies:
+### 🎨 [Figma link](https://www.figma.com/design/UeXcJJPiR2gAoJtoKfdeqY/pixel-cart?node-id=1-2&p=f)
+
+## اسکرین‌شات
+
+![demo](/screenshots/demo.gif)
+
+## چی داره
+
+- لیست محصولات با جستجو، فیلتر دسته‌بندی و مرتب‌سازی
+- فیلترها توی URL ذخیره می‌شن (با یه composable دستی به اسم `useUrlParams`)، یعنی لینک رو که بفرستی فیلترها هم باهاش میاد
+- صفحه جزئیات محصول با لایت‌باکس عکس (زوم و پن، هم با ماوس هم لمسی)
+- اسکلتون لودینگ برای همه‌جا، بدون جابجایی محتوا موقع لود
+- ترانزیشن نرم بین صفحات با View Transition API (فعال شده توی `nuxt.config.ts`)
+
+## تکنولوژی‌ها
+
+Nuxt 4 · Vue 3 + TypeScript · Tailwind CSS v4 · FakeStoreAPI
+
+## ساختار کلی پروژه
+
+```
+components/   کامپوننت‌ها (Layout, Product, Ui)
+composables/  useProducts, useUrlParams
+services/     شبیه ساز API ارتباط با FakeStoreAPI
+pages/        صفحات (index, products, [id])
+assets/       استایل، آیکون‌ها و فونت‌ها
+```
+
+## نصب و اجرا
 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
 ```
 
-## Production
-
-Build the application for production:
+روی `http://localhost:3000` بالا میاد. نیازی به API key یا env نیست.
 
 ```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
+npm run build && npm run preview
 ```
 
-Locally preview production build:
+## تصمیم‌ها و trade-off ها
 
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+- این FakeStoreAPI سرچ و فیلتر و سورت نداره، برای همین کل لیست محصولات یه بار گرفته می‌شه و فیلتر/سورتش سمت کلاینت انجام می‌شه.
+- توی برنچ `feature/backed-for-frontend` یه BFF ساده امتحان کردم که این محدودیت‌ها رو جمع کنه (کش کردن لیست محصولات، سرچ/فیلتر سمت سرور). به یه نتیجه قابل قبول نرسیدم — کشینگش درست کار نکرد و در نهایت به نفع سادگی همون نسخه‌ی کلاینت-ساید رو نگه داشتم.
+- قرار دادن `server: false` روی fetch محصولات گذاشتم چون سرور (که داخل ایرانه) نمی‌تونست به FakeStoreAPI درخواست بزنه و گیر میکرد، در نتیجه فچ سمت کلاینت انجام می‌شه.
+- فایل دیزاین همه‌ی بخش‌ها رو نداشت، برای جاهایی که طراحی نشده بود خودم تصمیم گرفتم. همچنین توی دیزاین دو فونت استفاده شده بود بدون یه منطق مشخص که کجا کدوم استفاده شه (تقریباً رندوم بود)، سعی کردم تا حد ممکن تم رو دربیارم و توی CSS variables و Tailwind منظمش کنم.
+- و کلی تجربه خفن دیگ ...
