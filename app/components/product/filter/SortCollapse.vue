@@ -17,7 +17,7 @@ const options: { label: string; value: SortOption }[] = [
 </script>
 
 <template>
-  <UiCollapse title="مرتب سازی">
+  <UiCollapse title="مرتب سازی" :default-open="modelValue !== ''">
     <div class="space-y-3">
       <UiRadio
         v-for="option in options"

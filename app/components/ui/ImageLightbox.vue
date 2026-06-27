@@ -23,10 +23,14 @@ const transform = computed(
 function open() {
   isOpen.value = true;
   reset();
+  window.addEventListener("mousemove", onMouseMove);
+  window.addEventListener("mouseup", onMouseUp);
 }
 
 function close() {
   isOpen.value = false;
+  window.removeEventListener("mousemove", onMouseMove);
+  window.removeEventListener("mouseup", onMouseUp);
 }
 
 function reset() {
@@ -115,15 +119,18 @@ function onTouchMove(e: TouchEvent) {
       MAX_SCALE,
     );
 
-    // Adjust translation so zoom anchors to the pinch midpoint
-    const centerX = window.innerWidth / 2;
-    const centerY = window.innerHeight / 2;
-    translateX.value =
-      midX - (midX - translateX.value - centerX) * ratio - centerX;
-    translateY.value =
-      midY - (midY - translateY.value - centerY) * ratio - centerY;
+    // Only adjust translation when scale actually changes — prevents drift at clamped boundaries
+    if (newScale !== scale.value) {
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+      translateX.value =
+        midX - (midX - translateX.value - centerX) * ratio - centerX;
+      translateY.value =
+        midY - (midY - translateY.value - centerY) * ratio - centerY;
 
-    scale.value = newScale;
+      scale.value = newScale;
+    }
+
     lastTouchDist = dist;
     clampPan();
   } else if (isDragging && e.touches.length === 1) {
@@ -144,7 +151,11 @@ function onKeyDown(e: KeyboardEvent) {
 }
 
 onMounted(() => window.addEventListener("keydown", onKeyDown));
-onUnmounted(() => window.removeEventListener("keydown", onKeyDown));
+onUnmounted(() => {
+  window.removeEventListener("keydown", onKeyDown);
+  window.removeEventListener("mousemove", onMouseMove);
+  window.removeEventListener("mouseup", onMouseUp);
+});
 </script>
 
 <template>
@@ -169,8 +180,6 @@ onUnmounted(() => window.removeEventListener("keydown", onKeyDown));
         v-if="isOpen"
         class="fixed inset-0 z-lightbox bg-black/88 flex items-center justify-center"
         @click="close"
-        @mousemove="onMouseMove"
-        @mouseup="onMouseUp"
       >
         <!-- Close button -->
         <button

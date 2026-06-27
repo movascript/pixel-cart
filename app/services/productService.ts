@@ -4,6 +4,9 @@
  *
  * Since FakeStore lacks these features, i fetched products once and apply
  * filtering and sorting client-side for consistent behavior.
+ *
+ * still is not my ideal but need to accept a part of it is cause of our api limitations
+ * so would let it sit like this and call it a day
  */
 function applyFilters(
   products: Product[],

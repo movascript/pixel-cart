@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
-
 withDefaults(
   defineProps<{
     src: string;
@@ -39,7 +37,7 @@ const handleLoad = () => {
       :src="placeholder"
       alt=""
       aria-hidden="true"
-      class="absolute inset-0 h-full w-full object-contain p-6 scale-110 blur-md transition-opacity duration-300"
+      class="absolute inset-0 h-full w-full object-contain p-6 scale-110 blur-lg transition-opacity duration-300"
       :class="imageLoaded ? 'opacity-0' : 'opacity-50'"
     />
 

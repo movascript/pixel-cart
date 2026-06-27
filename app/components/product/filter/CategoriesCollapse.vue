@@ -8,7 +8,7 @@ const emit = defineEmits<{
 }>();
 </script>
 <template>
-  <UiCollapse title="دسته بندی">
+  <UiCollapse title="دسته بندی" :default-open="selected.length > 0">
     <div class="space-y-3 capitalize">
       <template v-if="categories.length">
         <UiCheckbox
@@ -22,9 +22,10 @@ const emit = defineEmits<{
           class="animate-fade-up"
         />
       </template>
+
       <!-- Skeleton -->
       <template v-else>
-        <div v-for="i in 4" :key="i" class="flex items-center gap-3">
+        <div v-for="i in 4" :key="i" class="py-0.5 flex items-center gap-3">
           <UiSkeleton variant="default" class="size-5 shrink-0 rounded-md" />
           <UiSkeleton variant="text" class="h-4 max-w-32 flex-1" />
         </div>

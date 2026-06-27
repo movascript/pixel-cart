@@ -5,15 +5,21 @@ const productId = computed(() => Number(route.params.id));
 
 const {
   data: product,
-  pending: loading,
   error,
-} = await useAsyncData(
+  status,
+} = useAsyncData(
   () => `product-${productId.value}`,
   () => productService.getProduct(productId.value),
   {
     watch: [productId],
     server: false,
   },
+);
+
+// shouldnt have done this but due to turning of server in use async data
+// i had to stop the content flashing on page load
+const loading = computed(
+  () => status.value === "idle" || status.value === "pending",
 );
 
 useHead(

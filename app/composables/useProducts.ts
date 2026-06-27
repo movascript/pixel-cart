@@ -11,12 +11,19 @@ export const useProducts = () => {
   );
   const {
     data: filteredProducts,
-    pending: loading,
     error: productsError,
+    status,
   } = useAsyncData("products", () => productService.getProducts(filters), {
     watch: [filters],
     server: false,
   });
+
+  // shouldnt have done this but due to turning of server in use async data
+  // i had to stop the content flashing on page load
+  const loading = computed(
+    () => status.value === "idle" || status.value === "pending",
+  );
+
   const error = computed<string | null>(() =>
     productsError.value || categoriesError.value
       ? "خطا در دریافت محصولات"
