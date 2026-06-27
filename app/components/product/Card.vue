@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
 withDefaults(
   defineProps<{
@@ -10,29 +10,20 @@ withDefaults(
     eager: false,
   },
 );
-
-const loading = ref(false);
-
-const handleClick = () => (loading.value = true);
 </script>
 
 <template>
   <NuxtLink
     :to="`/products/${product.id}`"
     class="group animate-fade-up flex flex-col overflow-hidden rounded-3xl border border-border bg-surface p-2 font-heading transition-shadow hover:shadow-lg"
-    @click="handleClick"
   >
-    <div
-      class="aspect-square h-43 w-full overflow-hidden rounded-2xl bg-surface"
-    >
-      <img
-        :src="product.image"
-        :alt="product.title"
-        :loading="eager ? 'eager' : 'lazy'"
-        :fetchpriority="eager ? 'high' : 'auto'"
-        class="h-full w-full bg-surface-muted object-contain p-6 transition-all duration-200 group-hover:scale-105"
-      />
-    </div>
+    <UiLazyImage
+      :src="product.image"
+      :alt="product.title"
+      :eager="eager"
+      wrapper-class="aspect-square h-43 w-full rounded-2xl"
+      img-class="group-hover:scale-105"
+    />
 
     <div class="flex flex-1 flex-col gap-4 p-1 pt-4">
       <h3
@@ -43,15 +34,10 @@ const handleClick = () => (loading.value = true);
       </h3>
 
       <UiButton variant="outline" size="md" class="w-full font-semibold">
-        <span
-          v-if="!loading"
-          class="flex items-center gap-2 group-hover:gap-3 transition-all"
-        >
+        <span class="flex items-center gap-2 group-hover:gap-3 transition-all">
           مشاهده جزیات
           <UiIcon name="arrowLeft" />
         </span>
-
-        <UiSpinner v-else />
       </UiButton>
     </div>
   </NuxtLink>

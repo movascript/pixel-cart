@@ -3,7 +3,7 @@ export const formatPrice = (price: number, currency: string = "$"): string => {
 };
 
 // simulating network latency
-export function simulateApiDelay(min = 40, max = 700) {
+export function simulateApiDelay(min = 40, max = 500) {
   const delay = Math.floor(Math.random() * (max - min + 1)) + min;
   return new Promise((resolve) => setTimeout(resolve, delay));
 }

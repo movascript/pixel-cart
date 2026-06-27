@@ -61,15 +61,17 @@ const specs = computed(() =>
         </h1>
 
         <div
-          class="relative h-58 md:h-78 flex w-full items-center justify-center rounded-2xl bg-surface-muted p-4"
+          class="relative flex h-58 w-full items-center justify-center rounded-2xl bg-surface-muted p-4 md:h-78"
         >
-          <div class="absolute top-2 right-2">
+          <div class="absolute top-2 right-2 z-10">
             <UiImageLightbox :src="product.image" :alt="product.title" />
           </div>
-          <img
+
+          <UiLazyImage
             :src="product.image"
             :alt="product.title"
-            class="h-full w-full object-contain"
+            eager
+            class="h-full w-full object-contain p-0"
           />
         </div>
       </div>
