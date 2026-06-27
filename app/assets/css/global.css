@@ -25,6 +25,9 @@
   --font-heading: "Yekan", sans-serif;
 
   --z-index-header: 50;
+  --z-index-mobile-nav: 40;
+  --z-index-lightbox: 60;
+  --z-index-lightbox-controls: 61;
 
   --animate-fade-up: fade-up 250ms ease-out;
   --animate-slide-up: slide-up 250ms ease-out;

@@ -50,8 +50,11 @@ const specs = computed(() =>
         </h1>
 
         <div
-          class="h-58 md:h-78 flex w-full items-center justify-center rounded-2xl bg-surface-muted p-4"
+          class="relative h-58 md:h-78 flex w-full items-center justify-center rounded-2xl bg-surface-muted p-4"
         >
+          <div class="absolute top-2 right-2">
+            <UiImageLightbox :src="product.image" :alt="product.title" />
+          </div>
           <img
             :src="product.image"
             :alt="product.title"

@@ -41,7 +41,7 @@ onBeforeUnmount(() => {
     <div
       v-if="open"
       ref="menuRef"
-      class="fixed top-16 left-0 right-0 z-40 md:hidden px-3 pt-2 origin-top"
+      class="fixed top-16 left-0 right-0 z-mobile-nav md:hidden px-3 pt-2 origin-top"
     >
       <div
         class="bg-surface border border-border shadow-lg rounded-b-2xl overflow-hidden"
