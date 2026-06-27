@@ -19,3 +19,9 @@ export interface ProductFilters {
   categories: string[];
   sortBy: SortOption;
 }
+
+export interface ProductQuery {
+  search?: string;
+  categories?: string;
+  sortBy?: SortOption;
+}

@@ -1,4 +1,4 @@
-export const API_BASE_URL = "https://fakestoreapi.com";
+export const FAKE_STORE_BASE_URL = "https://fakestoreapi.com";
 
 export const headerNavItems = [
   {
