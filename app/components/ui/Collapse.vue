@@ -6,7 +6,7 @@ const props = withDefaults(
     disabled?: boolean;
   }>(),
   {
-    defaultOpen: true,
+    defaultOpen: false,
     disabled: false,
   },
 );
