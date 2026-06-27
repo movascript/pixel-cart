@@ -6,7 +6,8 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   css: ["~/assets/css/global.css"],
   imports: { dirs: ["types", "services"] },
-
+  experimental: { viewTransition: true },
+  app: { viewTransition: true },
   vite: {
     plugins: [tailwindcss()],
   },
