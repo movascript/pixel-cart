@@ -43,8 +43,8 @@
 
           <ul class="space-y-4">
             <li v-for="item in footerSocialLinks" :key="item.label">
-              <a
-                :href="item.to"
+              <NuxtLink
+                :to="item.to"
                 class="group flex items-center font-medium text-sm gap-3 text-secondary transition-colors"
               >
                 <UiIcon
@@ -55,7 +55,7 @@
                 <span class="group-hover:text-primary transition-colors">
                   {{ item.label }}
                 </span>
-              </a>
+              </NuxtLink>
             </li>
           </ul>
         </div>

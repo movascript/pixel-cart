@@ -9,14 +9,14 @@
           </p>
 
           <div class="flex justify-center gap-4">
-            <a
+            <NuxtLink
               v-for="(item, index) in footerSocialIcons"
               :key="index"
-              :href="item.to"
+              :to="item.to"
               class="rounded-full text-primary/50 hover:text-primary transition-colors"
             >
               <UiIcon :name="item.icon" />
-            </a>
+            </NuxtLink>
           </div>
         </div>
 
