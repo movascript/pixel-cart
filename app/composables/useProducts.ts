@@ -7,6 +7,7 @@ export const useProducts = () => {
   const { data: categories, error: categoriesError } = useAsyncData(
     "categories",
     () => productService.getCategories(),
+    { server: false },
   );
   const {
     data: filteredProducts,
@@ -14,6 +15,7 @@ export const useProducts = () => {
     error: productsError,
   } = useAsyncData("products", () => productService.getProducts(filters), {
     watch: [filters],
+    server: false,
   });
   const error = computed<string | null>(() =>
     productsError.value || categoriesError.value

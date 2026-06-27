@@ -12,6 +12,7 @@ const {
   () => productService.getProduct(productId.value),
   {
     watch: [productId],
+    server: false,
   },
 );
 

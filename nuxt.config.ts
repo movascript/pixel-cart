@@ -7,6 +7,11 @@ export default defineNuxtConfig({
   imports: { dirs: ["types", "services"] },
   experimental: { viewTransition: true },
 
+  ssr: true,
+  nitro: {
+    preset: "node-server",
+  },
+
   app: {
     viewTransition: true,
     head: {
