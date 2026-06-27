@@ -16,8 +16,16 @@ const route = useRoute();
 
       <span
         v-if="route.path === item.to"
+        style="view-transition-name: header-nav-indicator"
         class="absolute left-1/2 top-full mt-2 size-1.25 -translate-x-1/2 rounded-full bg-primary"
       />
     </NuxtLink>
   </nav>
 </template>
+
+<style scoped>
+::view-transition-group(header-nav-indicator) {
+  animation-duration: 0.2s;
+  animation-timing-function: ease-out;
+}
+</style>

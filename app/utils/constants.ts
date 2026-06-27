@@ -8,17 +8,17 @@ export const headerNavItems = [
   },
   {
     label: "دریافت مشاوره",
-    to: "#",
+    to: "/council",
     icon: "council",
   },
   {
     label: "سوالات متداول",
-    to: "#",
+    to: "/faq",
     icon: "faq",
   },
   {
     label: "تماس با ما",
-    to: "#",
+    to: "/contact",
     icon: "contact",
   },
 ];
