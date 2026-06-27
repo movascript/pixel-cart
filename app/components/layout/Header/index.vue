@@ -1,18 +1,5 @@
 <script setup lang="ts">
 const mobileNavOpen = ref(false);
-
-const isScrolled = ref(false);
-
-const handleScroll = () => {
-  isScrolled.value = window.scrollY > 20;
-};
-
-onMounted(() => {
-  handleScroll();
-  window.addEventListener("scroll", handleScroll);
-});
-
-onUnmounted(() => window.removeEventListener("scroll", handleScroll));
 </script>
 
 <template>
@@ -20,10 +7,7 @@ onUnmounted(() => window.removeEventListener("scroll", handleScroll));
     class="bg-surface border-b border-border sticky top-0 z-header shadow-sm rounded-b-2xl"
   >
     <div class="container">
-      <div
-        class="relative flex items-center h-18 transition-all"
-        :class="isScrolled ? 'md:h-20' : 'md:h-30'"
-      >
+      <div class="relative flex items-center h-18 md:h-30">
         <UiIconButton
           icon="menu"
           class="md:hidden"
