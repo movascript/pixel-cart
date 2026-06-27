@@ -1,0 +1,6 @@
+1. the image zooom
+2. header active indicator
+3. view transition
+4. meta. seo
+5. icon manager
+6. docs, readme

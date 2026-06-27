@@ -8,7 +8,7 @@ const emit = defineEmits<{
 }>();
 
 const options: { label: string; value: SortOption }[] = [
-  { label: "پیش فرض", value: "default" },
+  { label: "پیش فرض", value: "" },
   { label: "ارزان ترین", value: "price-asc" },
   { label: "گران ترین", value: "price-desc" },
   { label: "عنوان (صعودی)", value: "title-asc" },

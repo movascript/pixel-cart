@@ -10,7 +10,7 @@ const emit = defineEmits<{
 }>();
 
 const sortLabels: Record<ProductFilters["sortBy"], string> = {
-  default: "",
+  "": "",
   "price-asc": "ارزان ترین",
   "price-desc": "گران ترین",
   "title-asc": "عنوان (صعودی)",
@@ -21,7 +21,7 @@ const hasActiveFilters = computed(
   () =>
     !!props.filters.search ||
     props.filters.categories.length > 0 ||
-    props.filters.sortBy !== "default",
+    props.filters.sortBy !== "",
 );
 </script>
 
@@ -70,7 +70,7 @@ const hasActiveFilters = computed(
           />
 
           <UiBadge
-            v-if="filters.sortBy !== 'default'"
+            v-if="filters.sortBy !== ''"
             key="sort"
             icon="sort"
             :label="sortLabels[filters.sortBy]"

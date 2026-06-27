@@ -7,15 +7,22 @@ export interface Product {
   image: string;
 }
 
+export interface Category {
+  name: string;
+  count: number;
+}
+
 export type SortOption =
-  | "default"
+  | ""
   | "price-asc"
   | "price-desc"
   | "title-asc"
   | "title-desc";
 
-export interface ProductFilters {
+export type ProductFilters = {
   search: string;
   categories: string[];
   sortBy: SortOption;
-}
+};
+
+export type OptionalProductFilters = Partial<ProductFilters>;

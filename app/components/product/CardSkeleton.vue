@@ -1,6 +1,6 @@
 <template>
   <div
-    class="flex flex-col overflow-hidden rounded-3xl border border-border bg-surface p-2 animate-fade-up"
+    class="flex flex-col overflow-hidden rounded-3xl border border-border bg-surface p-2"
   >
     <UiSkeleton variant="image" class="aspect-square h-43 w-full" />
 

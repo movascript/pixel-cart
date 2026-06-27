@@ -5,22 +5,18 @@ const {
   filters,
   categories,
   filteredProducts,
-  fetchProducts,
-  fetchCategories,
   setSearch,
   toggleCategory,
   removeCategory,
   setSortBy,
 } = useProducts();
-
-onMounted(() => Promise.all([fetchProducts(), fetchCategories()]));
 </script>
 
 <template>
   <div class="container py-8">
     <div class="grid grid-cols-1 lg:grid-cols-4 gap-6">
       <ProductFilter
-        :categories="categories"
+        :categories="categories ?? []"
         :filters="filters"
         @search="setSearch"
         @category="toggleCategory"
@@ -32,7 +28,7 @@ onMounted(() => Promise.all([fetchProducts(), fetchCategories()]));
           :filters="filters"
           @remove-search="setSearch('')"
           @remove-category="removeCategory"
-          @remove-sort="setSortBy('default')"
+          @remove-sort="setSortBy('')"
         />
 
         <div
@@ -49,7 +45,7 @@ onMounted(() => Promise.all([fetchProducts(), fetchCategories()]));
         />
 
         <UiEmptyState
-          v-else-if="filteredProducts.length === 0"
+          v-else-if="filteredProducts?.length === 0"
           face=":("
           title="چیزی پیدا نشد"
           description="هیچ محصولی با فیلترهای انتخاب‌شده پیدا نشد."

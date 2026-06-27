@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col gap-6 animate-fade-up">
+  <div class="flex flex-col gap-6">
     <div class="w-full rounded-2xl bg-surface p-6">
       <UiSkeleton variant="text" class="mb-6 h-7 w-64" />
 

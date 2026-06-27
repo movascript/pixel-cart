@@ -2,6 +2,7 @@
 defineProps<{
   label: string;
   value: string;
+  count?: number;
 }>();
 
 const modelValue = defineModel<boolean>({
@@ -11,23 +12,39 @@ const modelValue = defineModel<boolean>({
 
 <template>
   <label
-    class="group flex cursor-pointer items-center gap-3 text-xs text-muted-foreground"
+    class="group flex cursor-pointer items-center justify-between gap-3 text-xs text-muted-foreground"
   >
-    <input v-model="modelValue" type="checkbox" class="peer sr-only" />
+    <div class="flex items-center gap-3">
+      <input v-model="modelValue" type="checkbox" class="peer sr-only" />
+
+      <!-- checkbox box -->
+      <span
+        class="flex size-4 items-center justify-center rounded-sm border-[1.5px] border-gray-200 transition-colors duration-100 group-hover:border-gray-400 peer-checked:border-primary peer-checked:bg-primary"
+      >
+        <UiIcon
+          name="check"
+          class="text-white transition-opacity duration-100"
+          :class="modelValue ? 'opacity-100' : 'opacity-0'"
+        />
+      </span>
+
+      <span
+        class="select-none font-medium text-gray-500 transition-colors duration-100 group-hover:text-gray-600 peer-checked:text-gray-800 ltr"
+      >
+        {{ label }}
+      </span>
+    </div>
 
     <span
-      class="group flex size-5 items-center justify-center rounded-md border-[1.5px] border-gray-200 transition-colors peer-checked:border-primary peer-checked:bg-primary group-hover:border-gray-400 duration-100"
+      v-if="count !== undefined"
+      :class="
+        cn(
+          'flex size-5 shrink-0 items-center justify-center rounded-md text-[10px] font-medium text-white transition-colors duration-100 p-3',
+          modelValue ? 'bg-primary' : 'bg-secondary',
+        )
+      "
     >
-      <UiIcon
-        name="check"
-        class="text-white opacity-0 duration-100 transition-opacity group-[.peer:checked+&]:opacity-100"
-      />
-    </span>
-
-    <span
-      class="font-medium select-none peer-checked:text-gray-800 text-gray-500 ltr transition-colors group-hover:text-gray-600 duration-100"
-    >
-      {{ label }}
+      {{ toPersianDigits(count) }}
     </span>
   </label>
 </template>

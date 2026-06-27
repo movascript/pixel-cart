@@ -1,23 +1,20 @@
 <script setup lang="ts">
 const route = useRoute();
+
 const productId = computed(() => Number(route.params.id));
 
-const product = ref<Product | null>(null);
-const loading = ref(true);
-const error = ref<string | null>(null);
-
-const fetchProduct = async () => {
-  loading.value = true;
-  error.value = null;
-
-  try {
-    product.value = await ApiService.getProduct(productId.value);
-  } catch (e) {
-    error.value = "خطا در دریافت اطلاعات محصول";
-  } finally {
-    loading.value = false;
-  }
-};
+const {
+  data: product,
+  pending: loading,
+  error,
+} = await useAsyncData(
+  () => `product-${productId.value}`,
+  () => productService.getProduct(productId.value),
+  {
+    watch: [productId],
+  },
+);
+console.log(product);
 
 const specs = computed(() =>
   product.value
@@ -37,9 +34,6 @@ const specs = computed(() =>
       ]
     : [],
 );
-
-onMounted(fetchProduct);
-watch(productId, fetchProduct);
 </script>
 
 <template>
@@ -48,7 +42,7 @@ watch(productId, fetchProduct);
 
     <ProductDetailSkeleton v-if="loading" />
 
-    <div v-if="product" class="flex flex-col gap-6">
+    <div v-else-if="product" class="flex flex-col gap-6">
       <!-- img -->
       <div class="w-full rounded-2xl bg-surface p-6">
         <h1 class="ltr mb-6 text-xl font-bold text-heading">
@@ -91,5 +85,11 @@ watch(productId, fetchProduct);
         </div>
       </div>
     </div>
+
+    <UiEmptyState
+      v-else-if="error"
+      title="خطا در دریافت اطلاعات محصول"
+      :description="error.message"
+    />
   </div>
 </template>

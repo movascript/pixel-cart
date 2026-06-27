@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { ref } from "vue";
+
 withDefaults(
   defineProps<{
     product: Product;
@@ -8,12 +10,17 @@ withDefaults(
     eager: false,
   },
 );
+
+const loading = ref(false);
+
+const handleClick = () => (loading.value = true);
 </script>
 
 <template>
   <NuxtLink
     :to="`/products/${product.id}`"
     class="group animate-fade-up flex flex-col overflow-hidden rounded-3xl border border-border bg-surface p-2 font-heading transition-shadow hover:shadow-lg"
+    @click="handleClick"
   >
     <div
       class="aspect-square h-43 w-full overflow-hidden rounded-2xl bg-surface"
@@ -40,8 +47,12 @@ withDefaults(
         size="md"
         class="w-full font-semibold hover:gap-3"
       >
-        مشاهده جزیات
-        <UiIcon name="arrowLeft" />
+        <span v-if="!loading" class="flex items-center gap-2">
+          مشاهده جزیات
+          <UiIcon name="arrowLeft" />
+        </span>
+
+        <UiSpinner v-else />
       </UiButton>
     </div>
   </NuxtLink>
