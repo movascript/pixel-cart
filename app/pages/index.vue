@@ -1,3 +1,7 @@
+<script setup lang="ts">
+useHead({ title: "خانه" });
+</script>
+
 <template>
   <div class="ltr flex py-40 flex-col gap-1 justify-center items-center grow">
     <h1 class="text-xl font-bold">Home page</h1>

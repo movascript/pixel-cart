@@ -42,12 +42,11 @@ const handleClick = () => (loading.value = true);
         {{ product.title }}
       </h3>
 
-      <UiButton
-        variant="outline"
-        size="md"
-        class="w-full font-semibold hover:gap-3"
-      >
-        <span v-if="!loading" class="flex items-center gap-2">
+      <UiButton variant="outline" size="md" class="w-full font-semibold">
+        <span
+          v-if="!loading"
+          class="flex items-center gap-2 group-hover:gap-3 transition-all"
+        >
           مشاهده جزیات
           <UiIcon name="arrowLeft" />
         </span>

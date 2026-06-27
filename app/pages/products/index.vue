@@ -1,4 +1,6 @@
 <script setup lang="ts">
+useHead({ title: "محصولات" });
+
 const {
   loading,
   error,

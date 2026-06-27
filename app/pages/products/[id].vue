@@ -14,7 +14,18 @@ const {
     watch: [productId],
   },
 );
-console.log(product);
+
+useHead(
+  computed(() => ({
+    title: product.value?.title ?? "محصول",
+    meta: [
+      {
+        name: "description",
+        content: product.value?.description?.slice(0, 150) ?? "",
+      },
+    ],
+  })),
+);
 
 const specs = computed(() =>
   product.value
