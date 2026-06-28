@@ -13,7 +13,7 @@ withDefaults(
 <template>
   <NuxtLink
     :to="`/products/${product.id}`"
-    class="group animate-fade-up flex flex-col overflow-hidden rounded-3xl border border-border bg-surface p-2 font-heading transition-shadow hover:shadow-lg"
+    class="group flex flex-col overflow-hidden rounded-3xl border border-border bg-surface p-2 font-heading transition-shadow hover:shadow-lg"
   >
     <UiLazyImage
       :src="product.image"
