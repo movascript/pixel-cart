@@ -25,7 +25,7 @@ withDefaults(
 
     <div class="flex flex-1 flex-col gap-4 p-1 pt-4">
       <h3
-        class="line-clamp-1 ltr px-1 text-sm font-medium text-heading md:text-base"
+        class="line-clamp-1 ltr px-1 font-medium text-heading"
         :title="product.title"
       >
         {{ product.title }}
