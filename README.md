@@ -35,14 +35,14 @@ assets/       استایل، آیکون‌ها و فونت‌ها
 ## نصب و اجرا
 
 ```bash
-npm install
-npm run dev
+pnpm install
+pnpm run dev
 ```
 
 روی `http://localhost:3000` بالا میاد. نیازی به API key یا env نیست.
 
 ```bash
-npm run build && npm run preview
+pnpm run build && npm run preview
 ```
 
 ## تصمیم‌ها و trade-off ها
