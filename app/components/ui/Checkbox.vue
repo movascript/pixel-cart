@@ -39,7 +39,7 @@ const modelValue = defineModel<boolean>({
       v-if="count !== undefined"
       :class="
         cn(
-          'flex size-5 shrink-0 items-center justify-center rounded-md text-[10px] font-medium text-white transition-colors duration-100 p-3',
+          'flex size-5 shrink-0 items-center justify-center rounded-md text-xs font-medium text-white transition-colors duration-100',
           modelValue ? 'bg-primary' : 'bg-secondary',
         )
       "
