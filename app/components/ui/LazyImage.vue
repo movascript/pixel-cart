@@ -22,7 +22,11 @@ const imgRef = ref<HTMLImageElement | null>(null);
 
 onMounted(() => {
   if (imgRef.value?.complete) {
-    imageLoaded.value = true;
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        imageLoaded.value = true;
+      });
+    });
   }
 });
 
@@ -37,8 +41,12 @@ const handleLoad = () => {
       :src="placeholder"
       alt=""
       aria-hidden="true"
-      class="absolute inset-0 h-full w-full object-contain p-6 scale-110 blur-lg transition-opacity duration-300"
-      :class="imageLoaded ? 'opacity-0' : 'opacity-50'"
+      :class="
+        cn(
+          'absolute inset-0 h-full w-full object-contain p-14 scale-110 blur-lg transition-opacity duration-200 opacity-50',
+          imageLoaded && 'opacity-0',
+        )
+      "
     />
 
     <img
@@ -47,11 +55,13 @@ const handleLoad = () => {
       :alt="alt"
       :loading="eager ? 'eager' : 'lazy'"
       :fetchpriority="eager ? 'high' : 'auto'"
-      class="relative h-full w-full object-contain p-6 transition-all duration-300"
-      :class="[
-        imageLoaded ? 'opacity-100 blur-none' : 'opacity-0 blur-xs',
-        imgClass,
-      ]"
+      :class="
+        cn(
+          'relative h-full w-full object-contain p-6 transition-opacity duration-200 opacity-0',
+          imageLoaded && 'opacity-100',
+          imgClass,
+        )
+      "
       @load="handleLoad"
     />
   </div>
